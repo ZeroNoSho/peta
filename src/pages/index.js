@@ -2,12 +2,14 @@ import Menu from "@components/menu";
 import LineChart from "@components/linebar";
 import Menubar from "@components/menubtn";
 import Table from "@components/tabel";
-import { UserData } from "./Data";
-import { useState } from "react";
+import { Contex } from "src/context/store";
+import { useState, useContext } from "react";
 
 export default function Home() {
+  const { UserDatass } = useContext(Contex);
+
   const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
+    labels: UserDatass.map((data) => data.year),
     datasets: [
       {
         label: "Suhu",
@@ -26,7 +28,7 @@ export default function Home() {
     ],
   });
   const [userData2, setUserData2] = useState({
-    labels: UserData.map((data) => data.year),
+    labels: UserDatass.map((data) => data.year),
     datasets: [
       {
         label: "Humidity",
@@ -44,7 +46,7 @@ export default function Home() {
       },
     ],
   });
-  const [userData3, setUserData3] = useState(false);
+
   return (
     <div
       style={{ width: "100%", height: "100vh" }}
