@@ -1,28 +1,74 @@
-import Map from "@components/Map";
-
-const DEFAULT_CENTER = [-7.3797534, 109.2401397];
-const DEFAULT_MARKER = [-7.377049640788257, 109.24465090501957];
+import Menu from "@components/menu";
+import LineChart from "@components/linebar";
+import Menubar from "@components/menubtn";
+import Table from "@components/tabel";
+import { UserData } from "./Data";
+import { useState } from "react";
 
 export default function Home() {
+  const [userData, setUserData] = useState({
+    labels: UserData.map((data) => data.year),
+    datasets: [
+      {
+        label: "Suhu",
+        data: UserData.map((data) => data.userGain),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderWidth: 2,
+      },
+    ],
+  });
+  const [userData2, setUserData2] = useState({
+    labels: UserData.map((data) => data.year),
+    datasets: [
+      {
+        label: "Humidity",
+        data: UserData.map((data) => data.userGain),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        borderWidth: 2,
+      },
+    ],
+  });
+  const [userData3, setUserData3] = useState(false);
   return (
-    <Map className={"w-auto h-auto"} center={DEFAULT_CENTER} zoom={16}>
-      {({ TileLayer, Marker, Popup }) => (
-        <>
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          />
-          <Marker position={DEFAULT_MARKER}>
-            <Popup>
-              <div>
-                Kejernihan&emsp;: 25,37037 <br />
-                Keasaman&emsp;: 21,9028 <br />
-                Jarak &emsp;&emsp;&emsp;: 31,586
-              </div>
-            </Popup>
-          </Marker>
-        </>
-      )}
-    </Map>
+    <div
+      style={{ width: "100%", height: "100vh" }}
+      className="w-auto h-auto flex"
+    >
+      <Menu></Menu>
+      <div className="w-full">
+        <div className="mb-10">
+          <p className="text-3xl font-semibold pt-10 text-center text-current text-gray-500">
+            Dashboard
+          </p>
+        </div>
+        <div className="flex flex-row">
+          <div className="w-auto h-auto basis-1/4 m-auto">
+            <LineChart chartData={userData} />
+          </div>
+          <div className="w-auto h-auto basis-1/4 m-auto">
+            <LineChart chartData={userData2} />
+          </div>
+        </div>
+        <Table></Table>
+      </div>
+
+      <Menubar></Menubar>
+    </div>
   );
 }
