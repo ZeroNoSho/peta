@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(255, 255, 255);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  overflow-x: auto;
+  overflow: auto;
+}
+
+.wrapper table {
+  white-space: nowrap;
+}
+/*Menu Map*/
+.blue {
+  background-color: #485fc7;
+}
+.blue2 {
+  background-color: #4c65d2;
+}
+.text_blue {
+  color: #485fc7;
+}
