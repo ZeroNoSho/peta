@@ -13,7 +13,7 @@ export default function Home() {
     datasets: [
       {
         label: "Suhu",
-        data: UserData.map((data) => data.userGain),
+        data: UserDatass.map((data) => data.userGain),
         backgroundColor: [
           "rgba(75,192,192,1)",
           "#ecf0f1",
@@ -32,7 +32,7 @@ export default function Home() {
     datasets: [
       {
         label: "Humidity",
-        data: UserData.map((data) => data.userGain),
+        data: UserDatass.map((data) => data.userGain),
         backgroundColor: [
           "rgba(75,192,192,1)",
           "#ecf0f1",

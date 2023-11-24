@@ -6,7 +6,7 @@ const Contex = createContext(null);
 const Provider = ({ children }) => {
   const [menus, setMenu] = useState("hidden");
   const [data, setData] = useState();
-  const [UserDatass, setUserData] = useState(
+  const [UserDatass, setUserData] = useState([
     {
       id: 1,
       year: 2016,
@@ -36,8 +36,8 @@ const Provider = ({ children }) => {
       year: 2020,
       userGain: 4300,
       userLost: 234,
-    }
-  );
+    },
+  ]);
 
   useEffect(() => {
     getData();

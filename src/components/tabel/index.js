@@ -1,7 +1,9 @@
-import { UserData } from "src/pages/Data";
 import Button from "@components/buttontable";
+import { Contex } from "src/context/store";
+import { useContext } from "react";
 
 export default function Table() {
+  const { UserDatass } = useContext(Contex);
   return (
     <div className="bg-white w-11/12 m-auto rounded-lg mt-20 pb-10">
       <Button></Button>
@@ -24,7 +26,7 @@ export default function Table() {
             </tr>
           </thead>
           <tbody>
-            {UserData?.map((item) => (
+            {UserDatass?.map((item) => (
               <tr key={item.id} className="text-center">
                 <td className={`border border-gray-300 p-4 text-slate-500 `}>
                   <p>{item.id}</p>
