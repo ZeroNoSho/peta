@@ -13,55 +13,10 @@ export default function Home() {
     return ctx.p0.parsed.y < 26 ? value : undefined;
   };
   const down2 = (ctx, value) => {
-    return ctx.p0.parsed.y >= 56 && ctx.p0.parsed.y <= 60 ? value : undefined;
+    return ctx.p0.parsed.y >= 80 && ctx.p0.parsed.y <= 90 ? value : undefined;
   };
 
-  console.log(25 < 26);
-  const { UserDatass, tabel } = useContext(Contex);
-  // const datasss = [
-  //   {
-  //     Humidity: 159.3,
-  //     Temperature: 27.6,
-  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
-  //     no: 0,
-  //     year: "2023-11-25/12:48",
-  //   },
-  //   {
-  //     Humidity: 159.3,
-  //     Temperature: 25.6,
-  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
-  //     no: 0,
-  //     year: "2023-11-25/12:48",
-  //   },
-  //   {
-  //     Humidity: 159.3,
-  //     Temperature: 26.6,
-  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
-  //     no: 0,
-  //     year: "2023-11-25/12:48",
-  //   },
-  //   {
-  //     Humidity: 189.3,
-  //     Temperature: 20.6,
-  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
-  //     no: 0,
-  //     year: "2023-11-25/12:48",
-  //   },
-  //   {
-  //     Humidity: 159.3,
-  //     Temperature: 26,
-  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
-  //     no: 0,
-  //     year: "2023-11-25/12:48",
-  //   },
-  //   {
-  //     Humidity: 99.3,
-  //     Temperature: 11.6,
-  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
-  //     no: 0,
-  //     year: "2023-11-25/12:48",
-  //   },
-  // ];
+  const { UserDatass } = useContext(Contex);
 
   const [userData, setUserData] = useState({
     labels: UserDatass && UserDatass?.slice(0, 100).map((data) => data.year),
