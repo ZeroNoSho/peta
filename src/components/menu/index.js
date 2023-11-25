@@ -10,7 +10,7 @@ export default function Menu() {
 
   return (
     <div
-      className={`w-96 blue text-slate-100 h-auto ${menus} max-[700px]:fixed  max-[700px]:h-full  max-[700px]:w-full  max-[700px]:z-20`}
+      className={`w-96 blue text-slate-100 h-auto ${menus} max-[800px]:fixed  max-[800px]:h-full  max-[800px]:w-full  max-[800px]:z-20`}
     >
       <div>
         <div className="flex flex-row  py-5 cursor-default">
