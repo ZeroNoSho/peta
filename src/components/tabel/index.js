@@ -8,7 +8,7 @@ export default function Table() {
     <div className="bg-white w-11/12 m-auto rounded-lg mt-20 pb-10">
       <div className="wrapper mt-5">
         <table className={`border-collapse table-auto text-sm w-11/12 m-auto`}>
-          <thead className="blue2 text-slate-100">
+          <thead className="blue text-slate-100">
             <tr>
               <th className={`border border-gray-300 font-medium p-4 pb-3  `}>
                 No

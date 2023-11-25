@@ -19,12 +19,14 @@ export default function Menu() {
           </p>
           <h3 className="ui-font-serif font-semibold text-xl basis-4/6">
             <Link href="/">
-              <span className="pr-2">S</span>
+              <span className="pr-2">D</span>
               <span className="pr-2">i</span>
-              <span className="pr-2">L</span>
+              <span className="pr-2">g</span>
+              <span className="pr-2">i</span>
+              <span className="pr-2">M</span>
               <span className="pr-2">o</span>
-              <span className="pr-2">o</span>
-              <span className="pr-2">k</span>
+              <span className="pr-2">v</span>
+              <span className="pr-2">e</span>
             </Link>
           </h3>
           <svg

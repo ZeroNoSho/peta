@@ -9,7 +9,7 @@ export default function Button() {
         onClick={() =>
           tabel[0] === 0 ? "" : setTabel([tabel[0] - 5, tabel[1] - 5])
         }
-        className="basis-1/4 inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
+        className="blue text-white basis-1/4 inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
       >
         Previous
       </button>
@@ -22,7 +22,7 @@ export default function Button() {
             ? ""
             : setTabel([tabel[1], tabel[1] + 5])
         }
-        className="basis-1/4 m-auto inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
+        className="blue text-white basis-1/4 m-auto inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
       >
         Next
       </button>
