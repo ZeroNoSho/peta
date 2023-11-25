@@ -7,7 +7,7 @@ export default function Button() {
     <div className="flex flex-row w-[88%] m-auto mt-10">
       <button
         onClick={() =>
-          tabel[0] === 0 ? "" : setTabel([tabel[0] - 100, tabel[1] - 100])
+          tabel[0] === 0 ? "" : setTabel([tabel[0] - 25, tabel[1] - 25])
         }
         className="blue text-white basis-1/4 inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
       >
@@ -20,7 +20,7 @@ export default function Button() {
         onClick={() =>
           tabel[1] >= UserDatass.length
             ? ""
-            : setTabel([tabel[1], tabel[1] + 100])
+            : setTabel([tabel[1], tabel[1] + 25])
         }
         className="blue text-white basis-1/4 m-auto inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
       >
