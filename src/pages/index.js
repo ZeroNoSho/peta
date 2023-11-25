@@ -155,7 +155,7 @@ export default function Home() {
             <spam>Suhu Dan Kelembapan</spam>
           </p>
         </div>
-        <div className="flex flex-row w-[75%] m-auto max-[1000px]:w-[100%]">
+        <div className="flex flex-row w-[75%] m-auto max-[800px]:w-[100%]  max-[700px]:block">
           <div className="basis-1/2 mr-auto">
             <div>
               <p className="text-center">Driver: xxxxxx</p>
@@ -163,7 +163,7 @@ export default function Home() {
               <p className="text-center">Bahan yang di angkut: Stoberi</p>
             </div>
           </div>
-          <div className="basis-1/2  ml-auto ">
+          <div className="basis-1/2  ml-auto  max-[700px]:mt-10">
             <p className="text-center">Berat: 10kg</p>
             <p className="text-center">Asal Keberangkatan: Purbalinga</p>
             <p className="text-center">Tujuan Keberangkatan: Cilacap</p>

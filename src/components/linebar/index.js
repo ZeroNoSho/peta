@@ -5,7 +5,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 function LineChart({ chartData }) {
   return (
     <Line
-      className="max-[700px]:m-auto max-[800px]:h-[500px] height"
+      className=" max-[800px]:w-auto  max-[800px]:h-auto  height"
       data={chartData}
     />
   );
