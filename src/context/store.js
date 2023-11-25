@@ -9,7 +9,18 @@ const Provider = ({ children }) => {
   const [menus, setMenu] = useState("hidden");
   const [tabel, setTabel] = useState([0, 5]);
 
-  const { data } = useSWR("/api", fetcher);
+  const { data, error } = useSWR("/api", fetcher);
+  if (error) return <div>Failed to load</div>;
+  if (!data)
+    return (
+      <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden  opacity-75 flex flex-col items-center justify-center">
+        <div className="loader  rounded-full border-4 border-t-4  h-12 w-12 mb-4"></div>
+        <h2 className="text-center text-xl font-semibold">Loading...</h2>
+        <p className="w-1/3 text-center ">
+          This may take a few seconds, please don't close this page.
+        </p>
+      </div>
+    );
 
   const UserDatass = data?.message["m2m:list"].map((item, i) => {
     const { ct, con, rn } = item["m2m:cin"];

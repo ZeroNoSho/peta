@@ -25,6 +25,11 @@ img {
   max-width: 100%;
   height: auto;
 }
+.loader {
+  border-top-color: #3498db;
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
+}
 
 .wrapper {
   overflow-x: auto;
