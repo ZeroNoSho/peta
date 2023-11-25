@@ -24,15 +24,18 @@ const Provider = ({ children }) => {
 
   const UserDatass = data?.message["m2m:list"].map((item, i) => {
     const { ct, con, rn } = item["m2m:cin"];
+    const tahun = ct.substring(0, 4);
     const jam = ct.substring(9, 11);
     const menit = ct.substring(11, 13);
+    const bulan = ct.substring(4, 6);
+    const tanggal = ct.substring(6, 8);
     const obj = JSON.parse(con);
     const Temperature = obj["Temperature 1"];
     const Humidity = obj["Humidity 1"];
     return {
       no: i,
       id: rn,
-      year: `${jam}:${menit}`,
+      year: `${tahun}-${bulan}-${tanggal}/${jam}:${menit}`,
       Temperature,
       Humidity,
     };
