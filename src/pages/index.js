@@ -9,9 +9,11 @@ export default function Home() {
   const skipped = (ctx, value) => {
     ctx.p0.skip || ctx.p1.skip ? value : undefined;
   };
+
   const down = (ctx, value) => {
     return ctx.p0.parsed.y < 26 ? value : undefined;
   };
+
   const down2 = (ctx, value) => {
     return ctx.p0.parsed.y >= 80 && ctx.p0.parsed.y <= 90 ? value : undefined;
   };
@@ -53,20 +55,27 @@ export default function Home() {
           data:
             UserDatass &&
             UserDatass?.slice(0, 100).map((data) => data.Temperature),
-          borderColor: "rgb(11, 111, 80)",
-          backgroundColor: "rgb(11, 111, 80)",
+          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: "rgba(255, 99, 132, 0.5)",
+
+          pointBorderColor: (context) => {
+            return context.parsed.y < 26 ? "green" : "rgba(255, 99, 132, 0.5)";
+          },
+          pointBackgroundColor: (context) => {
+            return context.parsed.y < 26 ? "green" : "rgba(255, 99, 132, 0.5)";
+          },
+          pointRadius: 2,
           borderWidth: 2,
           segment: {
-            borderColor: (ctx) =>
-              skipped(ctx, "rgb(0,0,0,0.2)") || down(ctx, "rgb(53, 162, 235)"),
-            borderDash: (ctx) => skipped(ctx, [6, 6]),
+            borderColor: (ctx) => down(ctx, "rgb(11, 111, 80)"),
           },
+
           spanGaps: true,
         },
         {
-          label: " < 26",
-          borderColor: "rgb(53, 162, 235)",
-          backgroundColor: "rgba(53, 162, 235, 0.5)",
+          label: `kurang dari 26 °C`,
+          borderColor: "rgb(11, 111, 80)",
+          backgroundColor: "rgb(11, 111, 80)",
         },
       ],
     });
@@ -78,20 +87,29 @@ export default function Home() {
           data:
             UserDatass &&
             UserDatass?.slice(0, 100).map((data) => data.Humidity),
-          borderColor: "rgb(11, 111, 80)",
-          backgroundColor: "rgb(11, 111, 80)",
+          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: "rgba(255, 99, 132, 0.5)",
+          pointBorderColor: (context) => {
+            return context.raw >= 80 && context.raw <= 90
+              ? "green"
+              : "rgb(255, 99, 132) ";
+          },
+          pointBackgroundColor: (context) => {
+            return context.raw >= 80 && context.raw <= 90
+              ? "green"
+              : "rgb(255, 99, 132) ";
+          },
+          pointRadius: 2,
           borderWidth: 2,
           segment: {
-            borderColor: (ctx) =>
-              skipped(ctx, "rgb(0,0,0,0.2)") || down2(ctx, "rgb(53, 162, 235)"),
-            borderDash: (ctx) => skipped(ctx, [6, 6]),
+            borderColor: (ctx) => down2(ctx, "rgb(11, 111, 80)"),
           },
           spanGaps: true,
         },
         {
-          label: " 56% ~ 60%",
-          borderColor: "rgb(53, 162, 235)",
-          backgroundColor: "rgba(53, 162, 235, 0.5)",
+          label: " 80% ~ 90%",
+          borderColor: "rgb(11, 111, 80)",
+          backgroundColor: "rgb(11, 111, 80)",
         },
       ],
     });
@@ -107,7 +125,7 @@ export default function Home() {
         <div className="mb-10 w-[75%] m-auto max-[800px]:w-[100%] ">
           <p className="text-3xl font-semibold pt-5 text-center text-current text-gray-500">
             Dashboard Monitoring <br />
-            <spam>Suhu Dan Kelembapan</spam>
+            <span>Suhu Dan Kelembapan</span>
           </p>
         </div>
         <div className="flex flex-row w-[75%] m-auto max-[800px]:w-[100%]  max-[700px]:block">
