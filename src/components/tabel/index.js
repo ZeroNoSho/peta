@@ -16,8 +16,8 @@ export default function Table() {
               <th className={`border border-gray-300 font-medium p-4 pb-3  `}>
                 id
               </th>
-              <th className={`border border-gray-300 font-medium p-4 pl-8  `}>
-                year
+              <th className={`border border-gray-300 font-medium p-4 pb-3  `}>
+                time
               </th>
               <th className={`border border-gray-300 font-medium p-4 pb-3   `}>
                 Temperature
