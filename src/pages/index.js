@@ -146,24 +146,24 @@ export default function Home() {
     <div style={{ width: "100%" }} className="w-auto h-auto flex">
       <Menu></Menu>
       <div className="w-full">
-        <div className="mt-10 w-[75%] m-auto">
+        <div className="mt-10 w-[75%] m-auto max-[800px]:w-[100%]">
           <img className="mx-auto" src="logo.png" alt="Picture of the author" />
         </div>
-        <div className="mb-10 w-[75%] m-auto">
+        <div className="mb-10 w-[75%] m-auto max-[800px]:w-[100%] ">
           <p className="text-3xl font-semibold pt-5 text-center text-current text-gray-500">
             Dashboard Monitoring <br />
             <spam>Suhu Dan Kelembapan</spam>
           </p>
         </div>
-        <div className="flex flex-row w-[75%] m-auto max-[800px]:w-[100%]">
-          <div className="basis-1/4 max-[800px]:basis-1/2  mr-auto">
+        <div className="flex flex-row w-[75%] m-auto max-[1000px]:w-[100%]">
+          <div className="basis-1/2 mr-auto">
             <div>
               <p className="text-center">Driver: xxxxxx</p>
               <p className="text-center"> No Pol Kendaraan: R 1231 PL</p>
               <p className="text-center">Bahan yang di angkut: Stoberi</p>
             </div>
           </div>
-          <div className="basis-1/4  max-[800px]:basis-1/2 ml-auto ">
+          <div className="basis-1/2  ml-auto ">
             <p className="text-center">Berat: 10kg</p>
             <p className="text-center">Asal Keberangkatan: Purbalinga</p>
             <p className="text-center">Tujuan Keberangkatan: Cilacap</p>

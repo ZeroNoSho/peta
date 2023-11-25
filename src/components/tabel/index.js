@@ -5,7 +5,7 @@ import { useContext } from "react";
 export default function Table() {
   const { UserDatass, tabel } = useContext(Contex);
   return (
-    <div className="bg-white w-11/12 m-auto rounded-lg mt-10 pb-10">
+    <div className="bg-white w-11/12 m-auto rounded-lg mt-10 pb-10 max-[800px]:w-[100%]">
       <div className="wrapper mt-5">
         <table className={`border-collapse table-auto text-sm w-11/12 m-auto`}>
           <thead className="blue text-slate-100">
