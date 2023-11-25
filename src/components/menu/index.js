@@ -9,7 +9,7 @@ export default function Menu() {
   const { menus, setMenu } = useContext(Contex);
 
   return (
-    <div className={`w-96 h-screen blue text-slate-100 h-auto ${menus}`}>
+    <div className={`w-96 blue text-slate-100 h-auto ${menus}`}>
       <div>
         <div className="flex flex-row  py-5 cursor-default">
           <p className="ui-font-serif font-semibold text-xl text-center basis-1/6">

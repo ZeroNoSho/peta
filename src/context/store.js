@@ -5,39 +5,8 @@ const Contex = createContext(null);
 
 const Provider = ({ children }) => {
   const [menus, setMenu] = useState("hidden");
-  const [data, setData] = useState();
-  const [UserDatass, setUserData] = useState([
-    {
-      id: 1,
-      year: 2016,
-      userGain: 80000,
-      userLost: 823,
-    },
-    {
-      id: 2,
-      year: 2017,
-      userGain: 45677,
-      userLost: 345,
-    },
-    {
-      id: 3,
-      year: 2018,
-      userGain: 78888,
-      userLost: 555,
-    },
-    {
-      id: 4,
-      year: 2019,
-      userGain: 90000,
-      userLost: 4555,
-    },
-    {
-      id: 5,
-      year: 2020,
-      userGain: 4300,
-      userLost: 234,
-    },
-  ]);
+  const [UserDatass, setUserData] = useState([]);
+  const [tabel, setTabel] = useState([0, 5]);
 
   useEffect(() => {
     getData();
@@ -48,7 +17,23 @@ const Provider = ({ children }) => {
     axios
       .get(`http://localhost:3000/api`)
       .then((res) => {
-        setData(res.data);
+        const hasil = res.data.message["m2m:list"].map((item, i) => {
+          const { ct, con, rn } = item["m2m:cin"];
+          const jam = ct.substring(9, 11);
+          const menit = ct.substring(11, 13);
+          const obj = JSON.parse(con);
+          const Temperature = obj["Temperature 1"];
+          const Humidity = obj["Humidity 1"];
+          return {
+            no: i,
+            id: rn,
+            year: `${jam}:${menit}`,
+            Temperature,
+            Humidity,
+          };
+        });
+        setUserData(hasil);
+        console.log(hasil);
       })
       .catch((err) => {});
   };
@@ -58,8 +43,9 @@ const Provider = ({ children }) => {
       value={{
         menus,
         setMenu,
-        data,
         UserDatass,
+        tabel,
+        setTabel,
       }}
     >
       {children}
