@@ -45,7 +45,7 @@ img {
 
 /*spiner*/
 .loader {
-  border-top-color: #3498db;
+  border-top-color: #0b6e4f;
   -webkit-animation: spinner 1.5s linear infinite;
   animation: spinner 1.5s linear infinite;
 }
