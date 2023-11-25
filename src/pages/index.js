@@ -155,22 +155,22 @@ export default function Home() {
             <spam>Suhu Dan Kelembapan</spam>
           </p>
         </div>
-        <div className="flex flex-row w-[75%] m-auto">
-          <div className="basis-1/4 mr-auto">
+        <div className="flex flex-row w-[75%] m-auto max-[800px]:w-[100%]">
+          <div className="basis-1/4 max-[800px]:basis-1/2  mr-auto">
             <div>
               <p className="text-center">Driver: xxxxxx</p>
               <p className="text-center"> No Pol Kendaraan: R 1231 PL</p>
               <p className="text-center">Bahan yang di angkut: Stoberi</p>
             </div>
           </div>
-          <div className="basis-1/4  ml-auto ">
+          <div className="basis-1/4  max-[800px]:basis-1/2 ml-auto ">
             <p className="text-center">Berat: 10kg</p>
             <p className="text-center">Asal Keberangkatan: Purbalinga</p>
             <p className="text-center">Tujuan Keberangkatan: Cilacap</p>
           </div>
         </div>
 
-        <div className="w-[75%] m-auto">
+        <div className="w-[75%] m-auto max-[800px]:w-[100%] max-[800px]:w-[100%]">
           <div className="w-auto h-auto mt-10">
             <LineChart chartData={userData} />
           </div>
