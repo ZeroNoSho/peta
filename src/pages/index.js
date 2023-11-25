@@ -6,42 +6,89 @@ import { Contex } from "src/context/store";
 import { useState, useEffect, useContext } from "react";
 
 export default function Home() {
-  const { UserDatass } = useContext(Contex);
+  const skipped = (ctx, value) => {
+    ctx.p0.skip || ctx.p1.skip ? value : undefined;
+  };
+  const down = (ctx, value) => {
+    return ctx.p0.parsed.y < 26 ? value : undefined;
+  };
+  const down2 = (ctx, value) => {
+    return ctx.p0.parsed.y >= 56 && ctx.p0.parsed.y <= 60 ? value : undefined;
+  };
+
+  console.log(25 < 26);
+  const { UserDatass, tabel } = useContext(Contex);
+  // const datasss = [
+  //   {
+  //     Humidity: 159.3,
+  //     Temperature: 27.6,
+  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
+  //     no: 0,
+  //     year: "2023-11-25/12:48",
+  //   },
+  //   {
+  //     Humidity: 159.3,
+  //     Temperature: 25.6,
+  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
+  //     no: 0,
+  //     year: "2023-11-25/12:48",
+  //   },
+  //   {
+  //     Humidity: 159.3,
+  //     Temperature: 26.6,
+  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
+  //     no: 0,
+  //     year: "2023-11-25/12:48",
+  //   },
+  //   {
+  //     Humidity: 189.3,
+  //     Temperature: 20.6,
+  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
+  //     no: 0,
+  //     year: "2023-11-25/12:48",
+  //   },
+  //   {
+  //     Humidity: 159.3,
+  //     Temperature: 26,
+  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
+  //     no: 0,
+  //     year: "2023-11-25/12:48",
+  //   },
+  //   {
+  //     Humidity: 99.3,
+  //     Temperature: 11.6,
+  //     id: "cin_QUQZXDAbB69QMWMmWN6wsSWHS36enklA",
+  //     no: 0,
+  //     year: "2023-11-25/12:48",
+  //   },
+  // ];
 
   const [userData, setUserData] = useState({
-    labels: UserDatass && UserDatass?.map((data) => data.year),
+    labels:
+      UserDatass &&
+      UserDatass?.slice(tabel[0], tabel[1]).map((data) => data.year),
     datasets: [
       {
         label: "Temperature",
-        data: UserDatass && UserDatass?.map((data) => data.Temperature),
-        backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
-        ],
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        data:
+          UserDatass &&
+          UserDatass?.slice(tabel[0], tabel[1]).map((data) => data.Temperature),
         borderWidth: 2,
       },
     ],
   });
   const [userData2, setUserData2] = useState({
-    labels: UserDatass && UserDatass?.map((data) => data.year),
+    labels:
+      UserDatass &&
+      UserDatass?.slice(tabel[0], tabel[1]).map((data) => data.year),
     datasets: [
       {
         label: "Humidity",
-        data: UserDatass && UserDatass?.map((data) => data.Humidity),
-        backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
-        ],
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        data:
+          UserDatass &&
+          UserDatass?.slice(tabel[0], tabel[1]).map((data) => data.Humidity),
+        borderColor: "rgb(11, 111, 80)",
+        backgroundColor: "rgb(11, 111, 80)",
         borderWidth: 2,
       },
     ],
@@ -49,40 +96,57 @@ export default function Home() {
 
   useEffect(() => {
     setUserData({
-      labels: UserDatass && UserDatass?.map((data) => data.year),
+      labels:
+        UserDatass &&
+        UserDatass?.slice(tabel[0], tabel[1]).map((data) => data.year),
       datasets: [
         {
-          label: "Temperature",
-          data: UserDatass && UserDatass?.map((data) => data.Temperature),
-          backgroundColor: [
-            "rgba(75,192,192,1)",
-            "#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
-          ],
-          borderColor: "rgb(255, 99, 132)",
-          backgroundColor: "rgba(255, 99, 132, 0.5)",
+          label: "Temperature ",
+          data:
+            UserDatass &&
+            UserDatass?.slice(tabel[0], tabel[1]).map(
+              (data) => data.Temperature
+            ),
+          borderColor: "rgb(11, 111, 80)",
+          backgroundColor: "rgb(11, 111, 80)",
           borderWidth: 2,
+          segment: {
+            borderColor: (ctx) =>
+              skipped(ctx, "rgb(0,0,0,0.2)") || down(ctx, "rgb(53, 162, 235)"),
+            borderDash: (ctx) => skipped(ctx, [6, 6]),
+          },
+          spanGaps: true,
+        },
+        {
+          label: " < 26",
+          borderColor: "rgb(53, 162, 235)",
+          backgroundColor: "rgba(53, 162, 235, 0.5)",
         },
       ],
     });
     setUserData2({
-      labels: UserDatass && UserDatass?.map((data) => data.year),
+      labels:
+        UserDatass &&
+        UserDatass?.slice(tabel[0], tabel[1]).map((data) => data.year),
       datasets: [
         {
           label: "Humidity",
-          data: UserDatass && UserDatass?.map((data) => data.Humidity),
-          backgroundColor: [
-            "rgba(75,192,192,1)",
-            "#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
-          ],
+          data:
+            UserDatass &&
+            UserDatass?.slice(tabel[0], tabel[1]).map((data) => data.Humidity),
+          borderColor: "rgb(11, 111, 80)",
+          borderWidth: 2,
+          segment: {
+            borderColor: (ctx) =>
+              skipped(ctx, "rgb(0,0,0,0.2)") || down2(ctx, "rgb(53, 162, 235)"),
+            borderDash: (ctx) => skipped(ctx, [6, 6]),
+          },
+          spanGaps: true,
+        },
+        {
+          label: " 56% ~ 60%",
           borderColor: "rgb(53, 162, 235)",
           backgroundColor: "rgba(53, 162, 235, 0.5)",
-          borderWidth: 2,
         },
       ],
     });

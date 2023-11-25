@@ -7,7 +7,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Provider = ({ children }) => {
   const [menus, setMenu] = useState("hidden");
-  const [tabel, setTabel] = useState([0, 5]);
+  const [tabel, setTabel] = useState([0, 100]);
 
   const { data, error } = useSWR("/api", fetcher);
   if (error) return <div>Failed to load</div>;
