@@ -15,7 +15,7 @@ const Provider = ({ children }) => {
   //token
   const getData = async () => {
     axios
-      .get(`http://localhost:3000/api`)
+      .get(`/api`)
       .then((res) => {
         const hasil = res.data.message["m2m:list"].map((item, i) => {
           const { ct, con, rn } = item["m2m:cin"];
