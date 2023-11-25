@@ -59,10 +59,10 @@ export default function Home() {
           backgroundColor: "rgba(255, 99, 132, 0.5)",
 
           pointBorderColor: (context) => {
-            return context.parsed.y < 26 ? "green" : "rgba(255, 99, 132, 0.5)";
+            return context.parsed.y < 26 ? "green" : "rgb(255, 99, 132)";
           },
           pointBackgroundColor: (context) => {
-            return context.parsed.y < 26 ? "green" : "rgba(255, 99, 132, 0.5)";
+            return context.parsed.y < 26 ? "green" : "rgb(255, 99, 132)";
           },
           pointRadius: 2,
           borderWidth: 2,
