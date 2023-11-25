@@ -97,11 +97,11 @@ export default function Home() {
             Dashboard
           </p>
         </div>
-        <div className="flex flex-row">
+        <div className="flex flex-row max-[700px]:block">
           <div className="w-auto h-auto basis-1/4 m-auto">
             <LineChart chartData={userData} />
           </div>
-          <div className="w-auto h-auto basis-1/4 m-auto">
+          <div className="w-auto h-auto basis-1/4 m-auto ">
             <LineChart chartData={userData2} />
           </div>
         </div>
