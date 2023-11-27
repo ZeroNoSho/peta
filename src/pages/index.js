@@ -6,10 +6,6 @@ import { Contex } from "src/context/store";
 import { useState, useEffect, useContext } from "react";
 
 export default function Home() {
-  const skipped = (ctx, value) => {
-    ctx.p0.skip || ctx.p1.skip ? value : undefined;
-  };
-
   const down = (ctx, value) => {
     return ctx.p0.parsed.y < 26 ? value : undefined;
   };

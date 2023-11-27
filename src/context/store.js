@@ -32,12 +32,14 @@ const Provider = ({ children }) => {
     const obj = JSON.parse(con);
     const Temperature = obj["Temperature 1"];
     const Humidity = obj["Humidity 1"];
+    const location = obj.location;
     return {
       no: i,
       id: rn,
       year: `${tahun}-${bulan}-${tanggal}/${jam}:${menit}`,
       Temperature,
       Humidity,
+      location,
     };
   });
 

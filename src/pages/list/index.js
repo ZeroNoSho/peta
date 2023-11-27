@@ -1,9 +1,18 @@
 import Map from "@components/Map";
-
-const DEFAULT_CENTER = [-7.3797534, 109.2401397];
-const DEFAULT_MARKER = [-7.377049640788257, 109.24465090501957];
+import { Contex } from "src/context/store";
+import { useContext } from "react";
 
 export default function Home() {
+  const { UserDatass } = useContext(Contex);
+
+  const DEFAULT_CENTER = [
+    UserDatass[0].location.latitude,
+    UserDatass[0].location.longitude,
+  ];
+  const DEFAULT_MARKER = [
+    UserDatass[0].location.latitude,
+    UserDatass[0].location.longitude,
+  ];
   return (
     <Map className={"w-auto h-auto"} center={DEFAULT_CENTER} zoom={16}>
       {({ TileLayer, Marker, Popup }) => (
@@ -15,9 +24,8 @@ export default function Home() {
           <Marker position={DEFAULT_MARKER}>
             <Popup>
               <div>
-                Kejernihan&emsp;: 25,37037 <br />
-                Keasaman&emsp;: 21,9028 <br />
-                Jarak &emsp;&emsp;&emsp;: 31,586
+                Kejernihan&emsp;: {UserDatass[0].Temperature} <br />
+                Keasaman&emsp;: {UserDatass[0].Humidity} <br />
               </div>
             </Popup>
           </Marker>
