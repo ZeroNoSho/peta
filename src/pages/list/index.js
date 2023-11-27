@@ -13,6 +13,7 @@ export default function Home() {
     UserDatass[0].location.latitude,
     UserDatass[0].location.longitude,
   ];
+
   return (
     <Map className={"w-auto h-auto"} center={DEFAULT_CENTER} zoom={16}>
       {({ TileLayer, Marker, Popup }) => (
@@ -21,14 +22,17 @@ export default function Home() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Marker position={DEFAULT_MARKER}>
-            <Popup>
-              <div>
-                Kejernihan&emsp;: {UserDatass[0].Temperature} <br />
-                Keasaman&emsp;: {UserDatass[0].Humidity} <br />
-              </div>
-            </Popup>
-          </Marker>
+          {UserDatass &&
+            UserDatass?.slice(0, 10).map((e) => (
+              <Marker position={[e.location.latitude, e.location.longitude]}>
+                <Popup>
+                  <div>
+                    Temperature&emsp;: {e.Temperature} <br />
+                    Humidity&emsp;: {e.Humidity} <br />
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
         </>
       )}
     </Map>
