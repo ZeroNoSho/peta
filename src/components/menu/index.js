@@ -60,8 +60,8 @@ export default function Menu() {
             <p className="basis-1/6 text-center">
               <FontAwesomeIcon icon={faCompass} />
             </p>
-            <Link href="/list" className="basis-5/6">
-              list sensor
+            <Link href="/tracking " className="basis-5/6">
+              Tracking 
             </Link>
           </div>
         </div>
