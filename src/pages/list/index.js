@@ -27,8 +27,9 @@ export default function Home() {
               <Marker position={[e.location.latitude, e.location.longitude]}>
                 <Popup>
                   <div>
-                    Temperature&emsp;: {e.Temperature} <br />
-                    Humidity&emsp;: {e.Humidity} <br />
+                    Temperature&emsp;: {e.Temperature} °C
+                    <br />
+                    Humidity&emsp;: {e.Humidity} %<br />
                   </div>
                 </Popup>
               </Marker>
